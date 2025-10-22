@@ -1,0 +1,34 @@
+# Rails API用のDockerfile（開発環境・DBなし）
+FROM ruby:3.3.6
+
+# 環境設定
+ENV LANG=C.UTF-8
+ENV TZ=Asia/Tokyo
+ENV RAILS_ENV=development
+
+# 必要なパッケージのインストール（API専用のため軽量化）
+RUN apt-get update -qq && \
+    apt-get install -y build-essential vim curl && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# 作業ディレクトリの設定
+WORKDIR /app
+
+# Bundlerのインストール
+RUN gem install bundler
+
+# GemfileとGemfile.lockをコピー（キャッシュ活用）
+COPY Gemfile* ./
+
+# Gemのインストール（Gemfileがある場合）
+RUN if [ -f Gemfile ]; then bundle install; fi
+
+# アプリケーションのソースコードをコピー
+COPY . .
+
+# ポート3000を公開
+EXPOSE 3000
+
+# Railsサーバー起動
+CMD ["rails", "server", "-b", "0.0.0.0"]

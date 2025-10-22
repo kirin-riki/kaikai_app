@@ -1,4 +1,4 @@
-# Rails API用のDockerfile（開発環境・DBなし）
+# Rails API用のDockerfile（開発環境・DBなし・最小構成）
 FROM ruby:3.3.6
 
 # 環境設定

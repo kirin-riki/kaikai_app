@@ -1,3 +1,5 @@
+require_relative 'service/reservation_date_calculator'
+
 class ReservableDate
   include ActiveModel::Model
   include ActiveModel::Attributes
@@ -12,7 +14,6 @@ class ReservableDate
   
   # 日付の論理チェック
   validate :due_date_after_shift_start
-  validate :shift_start_date_not_past
   
   def calculate_reservable_dates
     return { success: false, errors: errors.full_messages } unless valid?
@@ -34,9 +35,4 @@ class ReservableDate
     errors.add(:due_date, "はシフト開始日より後の日付を入力してください") if due_date <= shift_start_date
   end
   
-  def shift_start_date_not_past
-    return unless shift_start_date
-    
-    errors.add(:shift_start_date, "は今日以降の日付を入力してください") if shift_start_date < Date.today
-  end
 end

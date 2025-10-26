@@ -4,7 +4,7 @@ class ReservationDateCalculator
     @due_date = Date.parse(due_date.to_s)  # 型変換を追加
     @due_date_rule = due_date_rule.to_i
     @today = Date.today
-    @shift_end_date = @shift_start_date + @due_date_rule
+    @shift_end_date = @shift_start_date + @due_date_rule - 1
   end
   
   def call

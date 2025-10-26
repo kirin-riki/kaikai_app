@@ -6,6 +6,61 @@ React + TypeScript + TailwindCSSを使用して、シフト入力フォームと
 
 ---
 
+## 📋 実装チェックリスト
+
+実装を始める前に、以下の順序で進めてください：
+
+- [ ] ステップ0: ディレクトリ構造の作成
+- [ ] ステップ1: 型定義の作成（`types/api.ts`）
+- [ ] ステップ2: API通信関数の作成（`api/reservableDates.ts`）
+- [ ] ステップ3: 日付フォーマット用ユーティリティ（`utils/dateFormatter.ts`）
+- [ ] ステップ4: メインコンポーネントの実装（`App.tsx`）
+- [ ] ステップ5: CSSの確認（`index.css`）
+- [ ] ステップ6: 動作確認とテスト
+
+---
+
+## ⚡ クイックスタートガイド（IDEで実装する場合）
+
+時間がない方向けの最短手順です：
+
+### 1. ディレクトリを作成
+```bash
+cd frontend
+mkdir -p src/types src/api src/utils
+```
+
+### 2. 必要なファイルを作成
+
+以下のファイルをIDEで作成してください：
+
+- `src/types/api.ts` - 型定義
+- `src/api/reservableDates.ts` - API通信
+- `src/utils/dateFormatter.ts` - 日付フォーマット
+
+### 3. App.tsxを更新
+
+`src/App.tsx` を本メモのコードで置き換え
+
+### 4. 動作確認
+
+```bash
+# コンテナが起動しているか確認
+docker compose ps
+
+# ブラウザでアクセス
+# http://localhost:5173
+```
+
+### 5. テスト
+
+- Aシフト: `2025-10-17`
+- Bシフト: `2025-11-14`
+
+で動作確認！
+
+---
+
 ## 実装するUI
 
 ```
@@ -14,15 +69,16 @@ React + TypeScript + TailwindCSSを使用して、シフト入力フォームと
 ───────────────────────────────
 あなたのシフトに、旅のリズムを。
 
-Aシフト発表日： [2025-10-17]
-Bシフト発表日： [2025-11-14]
+シフト開始日： [2025-10-17]
+希望日（Bシフト発表日）： [2025-11-14]
+シフト周期： [28] 日
 
 [ 🔍 予約可能日を表示 ]
 
 ───────────────────────────────
 ✅ 2025-11-06（木）
-✅ 2025-11-10（月）
-✅ 2025-11-11（火）
+✅ 2025-11-07（金）
+✅ 2025-11-08（月）
 
 ℹ️ 「界タビ20s」：20代限定・平日・44日前予約開始
 ───────────────────────────────
@@ -34,6 +90,38 @@ Bシフト発表日： [2025-11-14]
 
 ## 実装手順
 
+### ステップ0: ディレクトリ構造の作成（準備）
+
+まず、必要なディレクトリを作成します。
+
+**コマンド**:
+```bash
+# frontendディレクトリに移動
+cd frontend
+
+# 必要なディレクトリを一括作成
+mkdir -p src/types src/api src/utils
+```
+
+**確認**:
+```bash
+# ディレクトリが正しく作成されたか確認
+ls -la src/
+```
+
+期待される出力：
+```
+drwxr-xr-x  api/
+drwxr-xr-x  types/
+drwxr-xr-x  utils/
+-rw-r--r--  App.tsx
+-rw-r--r--  index.css
+-rw-r--r--  main.tsx
+-rw-r--r--  vite-env.d.ts
+```
+
+---
+
 ### ステップ1: 型定義の作成
 
 **ファイル**: `frontend/src/types/api.ts`
@@ -41,24 +129,56 @@ Bシフト発表日： [2025-11-14]
 ```typescript
 // APIリクエストの型
 export interface ReservableDatesRequest {
-  a_shift_date: string;
-  b_shift_date: string;
+  shift_start_date: string;
+  due_date: string;
+  due_date_rule: number;
 }
 
 // APIレスポンスの型（成功）
 export interface ReservableDatesResponse {
-  reservable_dates: string[];
+  dates: string[];
 }
 
 // APIレスポンスの型（エラー）
 export interface ErrorResponse {
-  error: string;
+  errors: string[];
 }
 ```
 
-**作成コマンド**:
+**作成方法**:
+
+Dockerコンテナ内で作成する場合：
 ```bash
-mkdir -p frontend/src/types
+# ホストマシンから
+docker compose exec frontend sh -c "cat > /app/src/types/api.ts << 'EOF'
+// APIリクエストの型
+export interface ReservableDatesRequest {
+  shift_start_date: string;
+  due_date: string;
+  due_date_rule: number;
+}
+
+// APIレスポンスの型（成功）
+export interface ReservableDatesResponse {
+  dates: string[];
+}
+
+// APIレスポンスの型（エラー）
+export interface ErrorResponse {
+  errors: string[];
+}
+EOF"
+```
+
+または、IDEで直接ファイルを作成してください。
+
+**確認**:
+```bash
+# ファイルが作成されたか確認
+ls -la frontend/src/types/
+
+# ファイルの内容を確認
+cat frontend/src/types/api.ts
 ```
 
 ---
@@ -75,7 +195,7 @@ const API_BASE_URL = 'http://localhost:3000';
 export async function fetchReservableDates(
   request: ReservableDatesRequest
 ): Promise<ReservableDatesResponse> {
-  const response = await fetch(`${API_BASE_URL}/api/v1/reservable_dates`, {
+  const response = await fetch(`${API_BASE_URL}/reservable_dates`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -85,17 +205,63 @@ export async function fetchReservableDates(
 
   if (!response.ok) {
     const errorData: ErrorResponse = await response.json();
-    throw new Error(errorData.error || 'APIエラーが発生しました');
+    throw new Error(errorData.errors?.[0] || 'APIエラーが発生しました');
   }
 
   return response.json();
 }
 ```
 
-**作成コマンド**:
+**作成方法**:
+
+Dockerコンテナ内で作成する場合：
 ```bash
-mkdir -p frontend/src/api
+docker compose exec frontend sh -c "cat > /app/src/api/reservableDates.ts << 'EOF'
+import type { ReservableDatesRequest, ReservableDatesResponse, ErrorResponse } from '../types/api';
+
+const API_BASE_URL = 'http://localhost:3000';
+
+export async function fetchReservableDates(
+  request: ReservableDatesRequest
+): Promise<ReservableDatesResponse> {
+  const response = await fetch(\`\${API_BASE_URL}/reservable_dates\`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(request),
+  });
+
+  if (!response.ok) {
+    const errorData: ErrorResponse = await response.json();
+    throw new Error(errorData.errors?.[0] || 'APIエラーが発生しました');
+  }
+
+  return response.json();
+}
+EOF"
 ```
+
+または、IDEで直接ファイルを作成してください。
+
+**確認**:
+```bash
+# ファイルが作成されたか確認
+ls -la frontend/src/api/
+
+# ファイルの内容を確認
+cat frontend/src/api/reservableDates.ts
+```
+
+**重要な注意点**:
+
+1. **API_BASE_URL**:
+   - 開発環境では `http://localhost:3000`
+   - 本番環境では環境変数から取得するよう変更が必要（v2で対応）
+
+2. **CORS設定**:
+   - バックエンド側で既に `localhost:5173` を許可済み
+   - 異なるポートを使用する場合は `backend/config/initializers/cors.rb` を修正
 
 ---
 
@@ -122,10 +288,54 @@ export function formatDateWithWeekday(dateString: string): string {
 }
 ```
 
-**作成コマンド**:
+**作成方法**:
+
+Dockerコンテナ内で作成する場合：
 ```bash
-mkdir -p frontend/src/utils
+docker compose exec frontend sh -c "cat > /app/src/utils/dateFormatter.ts << 'EOF'
+/**
+ * 曜日を日本語で取得
+ */
+export function getJapaneseWeekday(dateString: string): string {
+  const date = new Date(dateString);
+  const weekdays = ['日', '月', '火', '水', '木', '金', '土'];
+  return weekdays[date.getDay()];
+}
+
+/**
+ * 日付を「YYYY-MM-DD（曜日）」形式にフォーマット
+ */
+export function formatDateWithWeekday(dateString: string): string {
+  const weekday = getJapaneseWeekday(dateString);
+  return \`\${dateString}（\${weekday}）\`;
+}
+EOF"
 ```
+
+または、IDEで直接ファイルを作成してください。
+
+**確認**:
+```bash
+# ファイルが作成されたか確認
+ls -la frontend/src/utils/
+
+# ファイルの内容を確認
+cat frontend/src/utils/dateFormatter.ts
+```
+
+**テスト方法**（ブラウザのコンソールで）:
+```javascript
+import { formatDateWithWeekday } from './utils/dateFormatter';
+
+// テスト
+console.log(formatDateWithWeekday('2025-11-06')); // "2025-11-06（木）"
+console.log(formatDateWithWeekday('2025-11-10')); // "2025-11-10（月）"
+```
+
+**タイムゾーンの注意点**:
+- `new Date(dateString)` はUTCとして解釈されます
+- 日付のみの場合（時刻なし）は問題ありませんが、注意が必要です
+- 曜日の計算に影響する可能性があるため、必要に応じて調整してください
 
 ---
 
@@ -141,8 +351,9 @@ import type { ReservableDatesRequest } from './types/api';
 
 function App() {
   // 状態管理
-  const [aShiftDate, setAShiftDate] = useState<string>('');
-  const [bShiftDate, setBShiftDate] = useState<string>('');
+  const [shiftStartDate, setShiftStartDate] = useState<string>('');
+  const [dueDate, setDueDate] = useState<string>('');
+  const [dueDateRule, setDueDateRule] = useState<string>('28');
   const [reservableDates, setReservableDates] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
@@ -150,14 +361,14 @@ function App() {
   // フォーム送信処理
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // エラーをクリア
     setError('');
     setReservableDates([]);
-    
+
     // バリデーション
-    if (!aShiftDate || !bShiftDate) {
-      setError('両方の日付を入力してください');
+    if (!shiftStartDate || !dueDate || !dueDateRule) {
+      setError('すべての項目を入力してください');
       return;
     }
 
@@ -165,14 +376,15 @@ function App() {
 
     try {
       const request: ReservableDatesRequest = {
-        a_shift_date: aShiftDate,
-        b_shift_date: bShiftDate,
+        shift_start_date: shiftStartDate,
+        due_date: dueDate,
+        due_date_rule: parseInt(dueDateRule, 10),
       };
 
       const response = await fetchReservableDates(request);
-      setReservableDates(response.reservable_dates);
+      setReservableDates(response.dates);
 
-      if (response.reservable_dates.length === 0) {
+      if (response.dates.length === 0) {
         setError('該当する予約可能日が見つかりませんでした');
       }
     } catch (err) {
@@ -198,34 +410,53 @@ function App() {
         {/* 入力フォーム */}
         <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-8 mb-8">
           <div className="space-y-6">
-            {/* Aシフト発表日 */}
+            {/* シフト開始日 */}
             <div>
-              <label htmlFor="aShiftDate" className="block text-sm font-medium text-kai-indigo mb-2">
-                Aシフト発表日
+              <label htmlFor="shiftStartDate" className="block text-sm font-medium text-kai-indigo mb-2">
+                シフト開始日
               </label>
               <input
                 type="date"
-                id="aShiftDate"
-                value={aShiftDate}
-                onChange={(e) => setAShiftDate(e.target.value)}
+                id="shiftStartDate"
+                value={shiftStartDate}
+                onChange={(e) => setShiftStartDate(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-kai-lavender focus:border-transparent"
                 required
               />
             </div>
 
-            {/* Bシフト発表日 */}
+            {/* 希望日（Bシフト発表日） */}
             <div>
-              <label htmlFor="bShiftDate" className="block text-sm font-medium text-kai-indigo mb-2">
-                Bシフト発表日
+              <label htmlFor="dueDate" className="block text-sm font-medium text-kai-indigo mb-2">
+                希望日（Bシフト発表日など）
               </label>
               <input
                 type="date"
-                id="bShiftDate"
-                value={bShiftDate}
-                onChange={(e) => setBShiftDate(e.target.value)}
+                id="dueDate"
+                value={dueDate}
+                onChange={(e) => setDueDate(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-kai-lavender focus:border-transparent"
                 required
               />
+            </div>
+
+            {/* シフト周期 */}
+            <div>
+              <label htmlFor="dueDateRule" className="block text-sm font-medium text-kai-indigo mb-2">
+                シフト周期（日数）
+              </label>
+              <input
+                type="number"
+                id="dueDateRule"
+                value={dueDateRule}
+                onChange={(e) => setDueDateRule(e.target.value)}
+                min="1"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-kai-lavender focus:border-transparent"
+                required
+              />
+              <p className="mt-1 text-sm text-gray-500">
+                例: 28日周期の場合は「28」を入力
+              </p>
             </div>
 
             {/* 送信ボタン */}
@@ -285,6 +516,33 @@ function App() {
 export default App;
 ```
 
+**作成方法**:
+
+IDEで `frontend/src/App.tsx` を開いて、上記のコードで置き換えてください。
+
+**確認**:
+
+コンテナのログでエラーが出ていないか確認：
+```bash
+docker compose logs -f frontend
+```
+
+エラーがなければ、Viteが自動的にホットリロードします。
+
+**重要なポイント**:
+
+1. **useState の初期値**:
+   - 空文字列で初期化しています
+   - テスト時に初期値を設定したい場合は、ここを変更してください
+
+2. **エラーハンドリング**:
+   - API通信エラーとバリデーションエラーを分けて処理
+   - ユーザーに分かりやすいメッセージを表示
+
+3. **ローディング状態**:
+   - `loading` stateでボタンの無効化とテキスト変更
+   - 二重送信を防止
+
 ---
 
 ### ステップ5: CSSの確認
@@ -296,6 +554,21 @@ export default App;
 ```css
 @import "tailwindcss";
 ```
+
+**確認方法**:
+```bash
+cat frontend/src/index.css
+```
+
+もし設定がない場合は追加してください：
+```bash
+echo '@import "tailwindcss";' > frontend/src/index.css
+```
+
+**TailwindCSSが正しく動作しているか確認**:
+- ブラウザで http://localhost:5173 にアクセス
+- カスタムカラー（kai-indigo, kai-lavender, kai-white）が適用されているか確認
+- フォント（Noto Sans JP）が適用されているか確認
 
 ---
 
@@ -313,23 +586,148 @@ http://localhost:5173
 
 #### 6-3. テストケース
 
-**正常ケース**:
-- Aシフト発表日: `2025-10-17`
-- Bシフト発表日: `2025-11-14`
-- 期待結果: 予約可能日が表示される
+**テストケース1: 正常ケース**
 
-**エラーケース1（日付未入力）**:
-- 片方または両方を空欄にして送信
-- 期待結果: 「両方の日付を入力してください」
+手順：
+1. シフト開始日に `2025-10-17` を入力
+2. 希望日に `2025-11-14` を入力
+3. シフト周期に `28` を入力
+4. 「🔍 予約可能日を表示」ボタンをクリック
 
-**エラーケース2（日付逆転）**:
-- Aシフト: `2025-11-14`
-- Bシフト: `2025-10-17`
-- 期待結果: APIからエラーメッセージ
+期待結果：
+- ローディング中に「検索中...」と表示される
+- 予約可能日のリストが表示される（例: 2025-11-06（木）、2025-11-07（金）、2025-11-08（月）など）
+- エラーメッセージは表示されない
 
-**該当なしケース**:
-- 過去の日付や範囲外の日付を入力
-- 期待結果: 「該当する予約可能日が見つかりませんでした」
+確認ポイント：
+- [ ] ボタンが一時的に無効化される
+- [ ] 日付が曜日付きで正しく表示される
+- [ ] レスポンスが1秒以内に返ってくる
+
+---
+
+**テストケース2: エラーケース（入力未完了）**
+
+手順：
+1. シフト開始日のみ入力（他の項目は空欄）
+2. 「🔍 予約可能日を表示」ボタンをクリック
+
+期待結果：
+- 「すべての項目を入力してください」というエラーメッセージが表示される
+- APIリクエストは送信されない
+
+確認ポイント：
+- [ ] エラーメッセージが赤い背景で表示される
+- [ ] ブラウザの開発者ツールのNetworkタブでリクエストが送信されていない
+
+---
+
+**テストケース3: エラーケース（日付逆転）**
+
+手順：
+1. シフト開始日に `2025-11-14` を入力
+2. 希望日に `2025-10-17` を入力
+3. シフト周期に `28` を入力
+4. 「🔍 予約可能日を表示」ボタンをクリック
+
+期待結果：
+- APIからのエラーメッセージが表示される
+- 例: "Due date はシフト開始日より後の日付を入力してください"
+
+確認ポイント：
+- [ ] APIリクエストが送信される（Networkタブで確認）
+- [ ] HTTPステータスコードが400（Bad Request）
+- [ ] エラーメッセージがユーザーに表示される（日本語）
+
+---
+
+**テストケース4: エラーケース（過去の日付）**
+
+手順：
+1. 過去の日付を入力
+2. 例: シフト開始日 `2024-01-01`、希望日 `2024-02-01`、シフト周期 `28`
+3. 「🔍 予約可能日を表示」ボタンをクリック
+
+期待結果：
+- APIからのエラーメッセージが表示される
+- 例: "Shift start date は今日以降の日付を入力してください"
+
+確認ポイント：
+- [ ] APIリクエストが送信される（Networkタブで確認）
+- [ ] HTTPステータスコードが400（Bad Request）
+- [ ] エラーメッセージがユーザーに表示される（日本語）
+
+---
+
+#### 6-4. デベロッパーツールでの確認
+
+**Networkタブで確認すべき項目**:
+1. リクエストURL: `http://localhost:3000/reservable_dates`
+2. メソッド: `POST`
+3. ステータスコード: `200` (成功時) または `400` (エラー時)
+4. Request Headers:
+   - `Content-Type: application/json`
+5. Request Payload:
+   ```json
+   {
+     "shift_start_date": "2025-10-17",
+     "due_date": "2025-11-14",
+     "due_date_rule": 28
+   }
+   ```
+6. Response (成功時):
+   ```json
+   {
+     "dates": ["2025-11-06", "2025-11-07", "2025-11-08", ...]
+   }
+   ```
+7. Response (エラー時):
+   ```json
+   {
+     "errors": ["Due date はシフト開始日より後の日付を入力してください"]
+   }
+   ```
+
+**Consoleタブで確認すべき項目**:
+- エラーメッセージが出ていないか
+- CORS関連のエラーが出ていないか
+- TypeScriptの型エラーが出ていないか
+
+---
+
+#### 6-5. トラブルシューティング
+
+**問題: 画面が真っ白**
+```bash
+# フロントエンドのログを確認
+docker compose logs frontend
+
+# よくある原因
+# - TypeScriptの構文エラー
+# - importパスの間違い
+# - モジュールが見つからない
+```
+
+**問題: スタイルが適用されない**
+```bash
+# index.cssを確認
+cat frontend/src/index.css
+
+# tailwind.config.jsを確認
+cat frontend/tailwind.config.js
+
+# PostCSS設定を確認
+cat frontend/postcss.config.js
+```
+
+**問題: APIリクエストが失敗する**
+```bash
+# バックエンドが起動しているか確認
+docker compose ps
+
+# CORSエラーの場合
+# backend/config/initializers/cors.rbを確認
+```
 
 ---
 
@@ -443,9 +841,139 @@ docker compose up -d backend
 
 ---
 
-## 参考
+## 🎉 実装完了後の確認事項
 
+実装が完了したら、以下を確認してください：
+
+### ファイル構成の確認
+```bash
+cd frontend/src
+tree
+```
+
+期待される構成：
+```
+src/
+├── api/
+│   └── reservableDates.ts
+├── types/
+│   └── api.ts
+├── utils/
+│   └── dateFormatter.ts
+├── App.tsx
+├── index.css
+├── main.tsx
+└── vite-env.d.ts
+```
+
+### 機能の確認
+
+- [ ] 日付入力フォームが表示される
+- [ ] 日付を入力して送信できる
+- [ ] ローディング状態が表示される
+- [ ] 予約可能日が曜日付きで表示される
+- [ ] エラーメッセージが適切に表示される
+- [ ] カスタムカラーが適用されている
+- [ ] フォント（Noto Sans JP）が適用されている
+- [ ] レスポンシブデザインが機能している
+
+### パフォーマンスの確認
+
+- [ ] 初回読み込みが3秒以内
+- [ ] APIレスポンスが1秒以内
+- [ ] ホットリロードが動作している
+
+### 次のステップ
+
+MVP実装が完了しました！以下の拡張を検討できます：
+
+1. **UI/UX改善**
+   - ローディングスピナーのアニメーション
+   - 結果のフェードインアニメーション
+   - エラーメッセージの自動消去
+
+2. **機能追加**
+   - 祝日除外機能
+   - シフトパターンの保存
+   - 複数シフトの一括計算
+
+3. **コンポーネント分割**
+   - Header, Footer, Form, List などに分割
+   - カスタムフックの作成
+
+4. **テストの追加**
+   - Vitestでのユニットテスト
+   - React Testing Libraryでのコンポーネントテスト
+
+---
+
+## 📚 参考リンク
+
+### 公式ドキュメント
 - React公式ドキュメント: https://react.dev/
 - TypeScript公式ドキュメント: https://www.typescriptlang.org/
 - TailwindCSS公式ドキュメント: https://tailwindcss.com/
+- Vite公式ドキュメント: https://vite.dev/
+
+### API・ブラウザ機能
 - Fetch API: https://developer.mozilla.org/ja/docs/Web/API/Fetch_API
+- Date: https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date
+- Form Validation: https://developer.mozilla.org/ja/docs/Learn/Forms/Form_validation
+
+### ツール
+- React Developer Tools: https://react.dev/learn/react-developer-tools
+- Chrome DevTools: https://developer.chrome.com/docs/devtools/
+
+---
+
+## 💡 Tips & ベストプラクティス
+
+### 開発効率を上げるコツ
+
+1. **ホットリロードの活用**
+   - ファイルを保存すると自動的にブラウザがリロードされます
+   - Console や Network タブを開いたまま開発すると便利
+
+2. **TypeScriptの型チェック**
+   - VSCodeを使用すると、リアルタイムで型エラーが表示されます
+   - `Ctrl + Space` で型の補完が効きます
+
+3. **TailwindCSSのクラス補完**
+   - VSCodeの「Tailwind CSS IntelliSense」拡張機能を使用すると便利
+
+4. **ブラウザ拡張機能**
+   - React Developer Tools でコンポーネントの状態を確認
+   - Redux DevTools（将来的に状態管理を追加する場合）
+
+### よく使うショートカット
+
+- `Ctrl + Shift + I`: デベロッパーツール
+- `Ctrl + R`: ページリロード
+- `Ctrl + Shift + R`: キャッシュクリア＆リロード
+- `F12`: デベロッパーツールのトグル
+
+---
+
+## 🎓 学習リソース
+
+フロントエンド開発をさらに学びたい方へ：
+
+### React
+- [React公式チュートリアル](https://react.dev/learn)
+- [React Hooks完全ガイド](https://react.dev/reference/react)
+
+### TypeScript
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+- [TypeScript Deep Dive (日本語版)](https://typescript-jp.gitbook.io/deep-dive/)
+
+### TailwindCSS
+- [TailwindCSS公式ドキュメント](https://tailwindcss.com/docs)
+- [Tailwind Play](https://play.tailwindcss.com/) - オンラインエディタ
+
+---
+
+## ✅ 実装完了！
+
+お疲れ様でした！フロントエンドの実装が完了しました。
+
+次は `backend実装メモ.md` を参照して、バックエンドAPIの実装に進んでください。

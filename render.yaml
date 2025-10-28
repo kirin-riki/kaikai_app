@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: kaikai-app-backend
+    runtime: ruby
+    plan: free
+    buildCommand: ./bin/render-build.sh
+    startCommand: cd backend && bundle exec rails server -b 0.0.0.0 -p $PORT
+    envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: RACK_ENV
+        value: production
+      - key: RAILS_LOG_TO_STDOUT
+        value: enabled
+      - key: RAILS_SERVE_STATIC_FILES
+        value: enabled

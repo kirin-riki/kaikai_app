@@ -1,6 +1,4 @@
-require_relative 'service/reservation_date_calculator'
-
-class ReservableDate
+class ReservableDate < ApplicationRecord
   include ActiveModel::Model
   include ActiveModel::Attributes
   include ActiveModel::Validations

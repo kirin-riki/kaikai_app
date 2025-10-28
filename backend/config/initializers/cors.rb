@@ -11,7 +11,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     if Rails.env.test?
       origins "*"
     elsif Rails.env.production?
-      origins "https://kaikai-app-1.onrender.com"  # 本番環境のフロントエンドURL
+      origins "https://kaikai-app-1.onrender.com", "https://kaikai-app.onrender.com"  # 本番環境のフロントエンドURL
     else
       origins "http://localhost:5173"  # 開発環境
     end

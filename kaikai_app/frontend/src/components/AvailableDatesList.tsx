@@ -1,4 +1,4 @@
-import { formatDateWithWeekday } from '../utils/dateFormatter';
+import { formatDateWithWeekday, getKaiTabiReservationStartDate } from '../utils/dateFormatter';
 
 interface AvailableDatesListProps {
   dates: string[];
@@ -26,35 +26,42 @@ export const AvailableDatesList = ({ dates }: AvailableDatesListProps) => {
 
       {/* 日付リスト */}
       <div className="space-y-3">
-        {dates.map((date, index) => (
-          <div
-            key={date}
-            className="group bg-gradient-to-r from-primary-50 to-accent-50 border-2 border-gray-200 rounded-xl p-4 hover:border-primary-500 hover:shadow-custom transition-all"
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                {/* 番号 */}
-                <div className="flex-shrink-0 w-8 h-8 bg-white rounded-lg flex items-center justify-center border-2 border-primary-500 font-bold text-primary-600">
-                  {index + 1}
+        {dates.map((date, index) => {
+          const reservationStartDate = getKaiTabiReservationStartDate(date);
+
+          return (
+            <div
+              key={date}
+              className="group bg-gradient-to-r from-primary-50 to-accent-50 border-2 border-gray-200 rounded-xl p-4 hover:border-primary-500 hover:shadow-custom transition-all"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3 flex-1">
+                  {/* 番号 */}
+                  <div className="flex-shrink-0 w-8 h-8 bg-white rounded-lg flex items-center justify-center border-2 border-primary-500 font-bold text-primary-600">
+                    {index + 1}
+                  </div>
+
+                  {/* 日付と予約開始日 */}
+                  <div className="flex-1">
+                    <div className="text-lg md:text-xl font-bold text-gray-900 mb-1">
+                      {formatDateWithWeekday(date)}
+                    </div>
+                    <div className="text-xs md:text-sm text-gray-600">
+                      （界タビ予約開始日: {reservationStartDate}）
+                    </div>
+                  </div>
                 </div>
 
-                {/* 日付 */}
-                <div>
-                  <span className="text-lg md:text-xl font-bold text-gray-900">
-                    {formatDateWithWeekday(date)}
+                {/* アイコン */}
+                <div className="flex-shrink-0">
+                  <span className="text-2xl">
+                    {index % 3 === 0 ? '🏨' : index % 3 === 1 ? '🌸' : '♨️'}
                   </span>
                 </div>
               </div>
-
-              {/* アイコン */}
-              <div className="flex-shrink-0">
-                <span className="text-2xl">
-                  {index % 3 === 0 ? '🏨' : index % 3 === 1 ? '🌸' : '♨️'}
-                </span>
-              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* フッター情報 */}

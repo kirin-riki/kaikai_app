@@ -1,7 +1,7 @@
 import type { ReservableDatesRequest, ReservableDatesResponse, ErrorResponse } from '../types/api';
 
 const API_BASE_URL = import.meta.env.PROD 
-  ? 'https://kaikai-app-api.onrender.com'
+  ? 'https://kaikai-app.onrender.com'
   : 'http://localhost:3000';
 
 export async function fetchReservableDates(

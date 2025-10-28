@@ -905,3 +905,122 @@ Processing by ReservableDatesController#create as */*
 Completed 200 OK in 5ms (Views: 0.9ms | GC: 0.0ms)
 
 
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked hosts: www.example.com
+Started POST "/reservable_dates" for 127.0.0.1 at 2025-10-28 12:18:26 +0900
+Processing by ReservableDatesController#create as HTML
+  Parameters: {"shift_start_date"=>"2025-10-17", "due_date"=>"2025-11-14", "due_date_rule"=>"28"}
+Completed 200 OK in 11ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 127.0.0.1 at 2025-10-28 12:18:26 +0900
+Processing by ReservableDatesController#create as HTML
+  Parameters: {"shift_start_date"=>"2025-10-17", "due_date"=>"2025-11-14", "due_date_rule"=>"28"}
+Completed 200 OK in 0ms (Views: 0.1ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 127.0.0.1 at 2025-10-28 12:18:26 +0900
+Processing by ReservableDatesController#create as HTML
+  Parameters: {"shift_start_date"=>"2025-10-17", "due_date"=>"2025-11-14", "due_date_rule"=>"28"}
+Completed 200 OK in 1ms (Views: 0.4ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 127.0.0.1 at 2025-10-28 12:18:26 +0900
+Processing by ReservableDatesController#create as HTML
+  Parameters: {"shift_start_date"=>nil, "due_date"=>"2025-11-14", "due_date_rule"=>"28"}
+Completed 400 Bad Request in 3ms (Views: 0.8ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 127.0.0.1 at 2025-10-28 12:18:26 +0900
+Processing by ReservableDatesController#create as HTML
+  Parameters: {"shift_start_date"=>"2025-10-17", "due_date"=>nil, "due_date_rule"=>"28"}
+Completed 400 Bad Request in 1ms (Views: 0.4ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 127.0.0.1 at 2025-10-28 12:18:26 +0900
+Processing by ReservableDatesController#create as HTML
+  Parameters: {"shift_start_date"=>"2025-10-17", "due_date"=>"2025-11-14", "due_date_rule"=>nil}
+Completed 400 Bad Request in 3ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 127.0.0.1 at 2025-10-28 12:18:26 +0900
+Processing by ReservableDatesController#create as HTML
+  Parameters: {"shift_start_date"=>"2025-10-17", "due_date"=>"2025-11-14", "due_date_rule"=>"0"}
+Completed 400 Bad Request in 1ms (Views: 0.1ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 127.0.0.1 at 2025-10-28 12:18:26 +0900
+Processing by ReservableDatesController#create as HTML
+  Parameters: {"shift_start_date"=>"2025-11-14", "due_date"=>"2025-10-17", "due_date_rule"=>"28"}
+Completed 400 Bad Request in 1ms (Views: 0.6ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 127.0.0.1 at 2025-10-28 12:18:26 +0900
+Processing by ReservableDatesController#create as HTML
+  Parameters: {"shift_start_date"=>"2025-10-17", "due_date"=>"2025-11-14", "due_date_rule"=>"7"}
+Completed 200 OK in 1ms (Views: 0.6ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 127.0.0.1 at 2025-10-28 12:18:26 +0900
+Processing by ReservableDatesController#create as HTML
+  Parameters: {"shift_start_date"=>"2025-10-17", "due_date"=>"2025-11-14", "due_date_rule"=>"365"}
+Completed 200 OK in 2ms (Views: 0.4ms | GC: 0.0ms)
+
+

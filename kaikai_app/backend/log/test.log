@@ -1,0 +1,4 @@
+Started POST "/reservable_dates" for 127.0.0.1 at 2025-10-28 12:16:42 +0900
+Processing by ReservableDatesController#create as HTML
+  Parameters: {"shift_start_date"=>"2025-10-17", "due_date"=>"2025-11-14", "due_date_rule"=>"28"}
+Completed 200 OK in 25ms (Views: 0.4ms | GC: 0.0ms)

@@ -70,7 +70,7 @@ docker compose ps
 あなたのシフトに、旅のリズムを。
 
 シフト開始日： [2025-10-17]
-希望日（Bシフト発表日）： [2025-11-14]
+シフト締切日： [2025-11-14]
 シフト周期： [28] 日
 
 [ 🔍 予約可能日を表示 ]
@@ -425,10 +425,10 @@ function App() {
               />
             </div>
 
-            {/* 希望日（Bシフト発表日） */}
+            {/* シフト希望締切日 */}
             <div>
               <label htmlFor="dueDate" className="block text-sm font-medium text-kai-indigo mb-2">
-                希望日（Bシフト発表日など）
+                シフト希望締切日
               </label>
               <input
                 type="date"

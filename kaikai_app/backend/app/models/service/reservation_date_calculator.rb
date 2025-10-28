@@ -32,6 +32,6 @@ class ReservationDateCalculator
   end
   
   def filter_weekdays(date_range)
-    date_range.select { |d| (1..5).include?(d.wday) }
+    date_range.select { |d| (1..4).include?(d.wday) }
   end
 end

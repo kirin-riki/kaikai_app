@@ -41,6 +41,7 @@ frontend/src/
 
 ### 1. 型定義（`src/types/reservation.ts`）
 
+
 ```typescript
 export interface ReservationParams {
   shift_start_date: string;

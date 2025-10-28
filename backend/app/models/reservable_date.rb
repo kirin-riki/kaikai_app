@@ -1,4 +1,4 @@
-class ReservableDate < ApplicationRecord
+class ReservableDate
   include ActiveModel::Model
   include ActiveModel::Attributes
   include ActiveModel::Validations

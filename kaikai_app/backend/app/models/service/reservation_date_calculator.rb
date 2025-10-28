@@ -14,7 +14,7 @@ class ReservationDateCalculator
     weekday_reservable = filter_weekdays(reservable_start..reservable_end)
     weekday_target_shift = filter_weekdays(target_start..target_end)
     
-    weekday_reservable & weekday_target_shift
+    result = weekday_reservable & weekday_target_shift
   end
   
   private

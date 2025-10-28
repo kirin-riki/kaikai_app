@@ -677,3 +677,231 @@ Processing by ReservableDatesController#create as */*
 Completed 200 OK in 2ms (Views: 0.1ms | GC: 0.0ms)
 
 
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 10:01:07 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+Completed 200 OK in 15ms (Views: 1.0ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 10:08:55 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+Completed 200 OK in 4ms (Views: 0.4ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 10:09:12 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+Completed 200 OK in 1ms (Views: 0.1ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 10:15:44 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+Completed 200 OK in 3ms (Views: 0.5ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 10:16:01 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+Completed 200 OK in 4ms (Views: 0.1ms | GC: 2.9ms)
+
+
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 10:16:03 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+Completed 200 OK in 2ms (Views: 0.1ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 10:17:55 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+Completed 200 OK in 6ms (Views: 0.5ms | GC: 0.0ms)
+
+
+Started GET "/" for 172.27.0.1 at 2025-10-28 10:18:06 +0900
+Processing by StaticPagesController#top as HTML
+Completed 200 OK in 2ms (Views: 0.1ms | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for 172.27.0.1 at 2025-10-28 10:18:06 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 10:18:11 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+Completed 200 OK in 6ms (Views: 0.2ms | GC: 0.0ms)
+
+
+Started GET "/" for 172.27.0.1 at 2025-10-28 10:50:31 +0900
+Processing by StaticPagesController#top as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for 172.27.0.1 at 2025-10-28 10:50:31 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 10:50:53 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+Completed 200 OK in 1ms (Views: 0.1ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 10:50:54 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+Completed 200 OK in 10ms (Views: 8.3ms | GC: 0.0ms)
+
+
+Started GET "/" for 172.27.0.1 at 2025-10-28 10:56:20 +0900
+Processing by StaticPagesController#top as HTML
+Completed 200 OK in 3ms (Views: 1.4ms | GC: 0.0ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for 172.27.0.1 at 2025-10-28 10:56:21 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 10:56:25 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+=== コントローラーのアクション開始 ===
+=== calculatorインスタンス作成完了 ===
+=== calculator.call実行完了、結果: {:success=>true, :data=>[Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Fri, 26 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026, Fri, 02 Jan 2026]} ===
+Completed 200 OK in 5ms (Views: 1.3ms | GC: 0.0ms)
+
+
+Started GET "/" for 172.27.0.1 at 2025-10-28 11:02:54 +0900
+Processing by StaticPagesController#top as HTML
+Completed 200 OK in 12ms (Views: 0.9ms | GC: 0.4ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for 172.27.0.1 at 2025-10-28 11:02:54 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 11:03:12 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+=== コントローラーのアクション開始 ===
+=== calculatorインスタンス作成完了 ===
+=== callメソッドが実行されました ===
+今日: 2025-10-28
+締切日: 2025-11-21
+予約可能期間: 2025-12-11 ～ 2026-01-04
+対象シフト期間: 2025-12-20 ～ 2026-01-16
+予約可能平日: [Thu, 11 Dec 2025, Mon, 15 Dec 2025, Tue, 16 Dec 2025, Wed, 17 Dec 2025, Thu, 18 Dec 2025, Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]
+対象シフト平日: [Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026, Mon, 05 Jan 2026, Tue, 06 Jan 2026, Wed, 07 Jan 2026, Thu, 08 Jan 2026, Mon, 12 Jan 2026, Tue, 13 Jan 2026, Wed, 14 Jan 2026, Thu, 15 Jan 2026]
+最終結果: [Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]
+=== callメソッド終了 ===
+=== calculator.call実行完了、結果: {:success=>true, :data=>[Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]} ===
+Completed 200 OK in 12ms (Views: 1.0ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 11:10:27 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-15", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-15", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+=== コントローラーのアクション開始 ===
+=== calculatorインスタンス作成完了 ===
+=== callメソッドが実行されました ===
+今日: 2025-10-28
+締切日: 2025-11-21
+予約可能期間: 2025-12-11 ～ 2026-01-04
+対象シフト期間: 2025-12-09 ～ 2026-01-05
+予約可能平日: [Thu, 11 Dec 2025, Mon, 15 Dec 2025, Tue, 16 Dec 2025, Wed, 17 Dec 2025, Thu, 18 Dec 2025, Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]
+対象シフト平日: [Tue, 09 Dec 2025, Wed, 10 Dec 2025, Thu, 11 Dec 2025, Mon, 15 Dec 2025, Tue, 16 Dec 2025, Wed, 17 Dec 2025, Thu, 18 Dec 2025, Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026, Mon, 05 Jan 2026]
+最終結果: [Thu, 11 Dec 2025, Mon, 15 Dec 2025, Tue, 16 Dec 2025, Wed, 17 Dec 2025, Thu, 18 Dec 2025, Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]
+=== callメソッド終了 ===
+=== calculator.call実行完了、結果: {:success=>true, :data=>[Thu, 11 Dec 2025, Mon, 15 Dec 2025, Tue, 16 Dec 2025, Wed, 17 Dec 2025, Thu, 18 Dec 2025, Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]} ===
+Completed 200 OK in 14ms (Views: 3.4ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 11:10:37 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+=== コントローラーのアクション開始 ===
+=== calculatorインスタンス作成完了 ===
+=== callメソッドが実行されました ===
+今日: 2025-10-28
+締切日: 2025-11-21
+予約可能期間: 2025-12-11 ～ 2026-01-04
+対象シフト期間: 2025-12-20 ～ 2026-01-16
+予約可能平日: [Thu, 11 Dec 2025, Mon, 15 Dec 2025, Tue, 16 Dec 2025, Wed, 17 Dec 2025, Thu, 18 Dec 2025, Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]
+対象シフト平日: [Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026, Mon, 05 Jan 2026, Tue, 06 Jan 2026, Wed, 07 Jan 2026, Thu, 08 Jan 2026, Mon, 12 Jan 2026, Tue, 13 Jan 2026, Wed, 14 Jan 2026, Thu, 15 Jan 2026]
+最終結果: [Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]
+=== callメソッド終了 ===
+=== calculator.call実行完了、結果: {:success=>true, :data=>[Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]} ===
+Completed 200 OK in 9ms (Views: 0.3ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 11:11:43 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-28", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-28", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+=== コントローラーのアクション開始 ===
+=== calculatorインスタンス作成完了 ===
+=== callメソッドが実行されました ===
+今日: 2025-10-28
+締切日: 2025-11-21
+予約可能期間: 2025-12-11 ～ 2026-01-04
+対象シフト期間: 2025-12-22 ～ 2026-01-18
+予約可能平日: [Thu, 11 Dec 2025, Mon, 15 Dec 2025, Tue, 16 Dec 2025, Wed, 17 Dec 2025, Thu, 18 Dec 2025, Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]
+対象シフト平日: [Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026, Mon, 05 Jan 2026, Tue, 06 Jan 2026, Wed, 07 Jan 2026, Thu, 08 Jan 2026, Mon, 12 Jan 2026, Tue, 13 Jan 2026, Wed, 14 Jan 2026, Thu, 15 Jan 2026]
+最終結果: [Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]
+=== callメソッド終了 ===
+=== calculator.call実行完了、結果: {:success=>true, :data=>[Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]} ===
+Completed 200 OK in 6ms (Views: 0.9ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 11:11:50 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-30", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-30", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+=== コントローラーのアクション開始 ===
+=== calculatorインスタンス作成完了 ===
+=== callメソッドが実行されました ===
+今日: 2025-10-28
+締切日: 2025-11-21
+予約可能期間: 2025-12-11 ～ 2026-01-04
+対象シフト期間: 2025-12-24 ～ 2026-01-20
+予約可能平日: [Thu, 11 Dec 2025, Mon, 15 Dec 2025, Tue, 16 Dec 2025, Wed, 17 Dec 2025, Thu, 18 Dec 2025, Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]
+対象シフト平日: [Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026, Mon, 05 Jan 2026, Tue, 06 Jan 2026, Wed, 07 Jan 2026, Thu, 08 Jan 2026, Mon, 12 Jan 2026, Tue, 13 Jan 2026, Wed, 14 Jan 2026, Thu, 15 Jan 2026, Mon, 19 Jan 2026, Tue, 20 Jan 2026]
+最終結果: [Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]
+=== callメソッド終了 ===
+=== calculator.call実行完了、結果: {:success=>true, :data=>[Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]} ===
+Completed 200 OK in 5ms (Views: 0.7ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 11:12:00 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+=== コントローラーのアクション開始 ===
+=== calculatorインスタンス作成完了 ===
+=== callメソッドが実行されました ===
+今日: 2025-10-28
+締切日: 2025-11-21
+予約可能期間: 2025-12-11 ～ 2026-01-04
+対象シフト期間: 2025-12-20 ～ 2026-01-16
+予約可能平日: [Thu, 11 Dec 2025, Mon, 15 Dec 2025, Tue, 16 Dec 2025, Wed, 17 Dec 2025, Thu, 18 Dec 2025, Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]
+対象シフト平日: [Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026, Mon, 05 Jan 2026, Tue, 06 Jan 2026, Wed, 07 Jan 2026, Thu, 08 Jan 2026, Mon, 12 Jan 2026, Tue, 13 Jan 2026, Wed, 14 Jan 2026, Thu, 15 Jan 2026]
+最終結果: [Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]
+=== callメソッド終了 ===
+=== calculator.call実行完了、結果: {:success=>true, :data=>[Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]} ===
+Completed 200 OK in 4ms (Views: 0.4ms | GC: 0.0ms)
+
+
+Started POST "/reservable_dates" for 172.27.0.1 at 2025-10-28 11:33:20 +0900
+Processing by ReservableDatesController#create as */*
+  Parameters: {"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28, "reservable_date"=>{"shift_start_date"=>"2025-10-26", "due_date"=>"2025-11-21", "due_date_rule"=>28}}
+=== callメソッドが実行されました ===
+今日: 2025-10-28
+締切日: 2025-11-21
+予約可能期間: 2025-12-11 ～ 2026-01-04
+対象シフト期間: 2025-12-20 ～ 2026-01-16
+予約可能平日: [Thu, 11 Dec 2025, Mon, 15 Dec 2025, Tue, 16 Dec 2025, Wed, 17 Dec 2025, Thu, 18 Dec 2025, Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]
+対象シフト平日: [Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026, Mon, 05 Jan 2026, Tue, 06 Jan 2026, Wed, 07 Jan 2026, Thu, 08 Jan 2026, Mon, 12 Jan 2026, Tue, 13 Jan 2026, Wed, 14 Jan 2026, Thu, 15 Jan 2026]
+最終結果: [Mon, 22 Dec 2025, Tue, 23 Dec 2025, Wed, 24 Dec 2025, Thu, 25 Dec 2025, Mon, 29 Dec 2025, Tue, 30 Dec 2025, Wed, 31 Dec 2025, Thu, 01 Jan 2026]
+=== callメソッド終了 ===
+Completed 200 OK in 5ms (Views: 0.9ms | GC: 0.0ms)
+
+

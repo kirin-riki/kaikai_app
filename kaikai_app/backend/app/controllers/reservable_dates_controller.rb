@@ -5,7 +5,7 @@ class ReservableDatesController < ApplicationController
       due_date: params[:due_date],
       due_date_rule: params[:due_date_rule]
     )
-    
+
     result = reservable_date.calculate_reservable_dates
     
     if result[:success]

@@ -8,7 +8,13 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     # Allow all origins in test environment, specific origin in other environments
-    origins Rails.env.test? ? "*" : "http://localhost:5173"
+    if Rails.env.test?
+      origins "*"
+    elsif Rails.env.production?
+      origins "https://kaikai-app-1.onrender.com"  # 本番環境のフロントエンドURL
+    else
+      origins "http://localhost:5173"  # 開発環境
+    end
 
     resource "*",
       headers: :any,

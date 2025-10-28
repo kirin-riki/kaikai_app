@@ -1,6 +1,9 @@
 import type { ReservableDatesRequest, ReservableDatesResponse, ErrorResponse } from '../types/api';
 
-const API_BASE_URL = 'http://localhost:3000';
+// 本番環境のAPI URL
+const API_BASE_URL = import.meta.env.PROD 
+  ? 'https://your-render-app.onrender.com'  // RenderのバックエンドURLに変更
+  : 'http://localhost:3000';
 
 export async function fetchReservableDates(
   request: ReservableDatesRequest

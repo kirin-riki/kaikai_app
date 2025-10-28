@@ -1,5 +1,3 @@
-require_relative 'service/reservation_date_calculator'
-
 class ReservableDate
   include ActiveModel::Model
   include ActiveModel::Attributes

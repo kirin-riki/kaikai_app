@@ -25,7 +25,7 @@ export const InfoBox = () => {
               </div>
               <div>
                 <p className="text-sm font-bold text-gray-900 mb-1">利用可能日</p>
-                <p className="text-sm text-gray-700">平日のみ（月曜日〜金曜日）</p>
+                <p className="text-sm text-gray-700">平日のみ（月曜日〜木曜日）</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
